@@ -7,33 +7,53 @@
 //
 
 import Foundation
+import CoreData
 
-class PairController {
+
+
+class PairController{
     
-    private let Kpairs = "pairs"
+    static let kPerson = "person"
     
-    static var shared = PairController()
     
-    var pairs: [Pair]
+    static let shared = PairController()
     
-    init() {
+    var persons: [Person]
     
-    self.pairs = []
-    
+    init(){
+        
+        persons = []
+        
+        loadFromStorage()
     }
     
-    func addPerson(add: String) {
-        
-      let new = Pair(name: add)
-        pairs.append(new)
-        self.saveToStorage()
+    func random(){
+        persons.random()
+        savedToStorage()
+    }
+
+
+    func addPerson(Name: String){
+        let newName = Person(Name: Name)
+        self.persons.append(newName)
+        savedToStorage()
     }
     
-    func saveToStorage() {
-        
-        let pairDic = self.pairs.map({$0.dicCopy()})
-        
-        UserDefaults.standard.set(pairDic, forKey: Kpairs)
+
+    func savedToStorage(){
+        let dictionaryArray = persons.map{$0.dictionaryRepresentation}
+        UserDefaults.standard.set(dictionaryArray, forKey: PairController.kPerson)
     }
     
+    func loadFromStorage(){
+        guard let personsDictionaryArray = UserDefaults.standard.object(forKey: PairController.kPerson) as? [[String: Any]]
+            else { return }
+        self.persons = personsDictionaryArray.flatMap{Person(dictionary: $0)}
+    }
+}
+
+extension Array{
+    mutating func random(){
+        for _ in 0..<10{ sort { (_,_) in arc4random() < arc4random() } }
+    }
 }

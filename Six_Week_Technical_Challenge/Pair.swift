@@ -8,32 +8,27 @@
 
 import Foundation
 
-class Pair: Equatable {
+class Person {
 
-private let Kname = "name"
+private let Kgroup = "group"
+static let  Kname = "Name"
+   
+    let Name: String
     
-var name: String
-
-    init(name: String) {
-        
-        self.name = name
-        
+    
+    init(Name: String, groupName: String? =  nil){
+        self.Name = Name
     }
     
-    
-    init?(Dic: [String : AnyObject]) {
-        guard let name = Dic[Kname] as? String else { return nil }
-        self.name = name
-    }
-    
-    func dicCopy() ->  [String : AnyObject] {
-        let dictionary = [Kname : self.name]
+    init?(dictionary:[String: Any]){
+        guard let Name = dictionary[Person.Kname] as? String
+            else { return nil }
         
-        return dictionary as [String : AnyObject]
+        self.Name = Name
     }
-
+    
+    var dictionaryRepresentation: [String: Any]{
+        return [Person.Kname: self.Name]
+    }
 }
 
- func ==(lhs: Pair, rhs: Pair) -> Bool {
-return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
-}

@@ -7,82 +7,80 @@
 //
 
 import UIKit
+import GameKit
 
 class PairTableViewController: UITableViewController {
-
     
-    
+    // MARK: - Outlets
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-            }
+    }
     
-    var pair: Pair?
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    // MARK: - Actions
 
-    @IBAction func addPairTapped(_ sender: Any) {
+    @IBAction func randomButtonPressed(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Add Person", message: nil, preferredStyle: .alert)
-        
-        var textfield: UITextField?
+       let new = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: PairController.shared.persons)
+        print(new)
+        PairController.shared.random()
+        tableView.reloadData()
 
-        alert.addTextField { (newTextField) in
-            textfield = newTextField
+    }
+    @IBAction func addButtonPressed(_ sender: Any) {
+    
+    
+        let alert = UIAlertController(title: "Name", message: nil, preferredStyle: .alert)
+        var nameTextField = UITextField()
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Name"
+            nameTextField = textField
         }
         
-        let addPerson = UIAlertAction(title: "Add", style: .default) { (_) in
-            
-            guard let PersonText = textfield?.text else { return }
-            PairController.shared.addPerson(add: PersonText)
-            
-                self.tableView.reloadData()
+        let add = UIAlertAction(title: "Add", style: .default) { (_) in
+            guard let Name = nameTextField.text else { return }
+            PairController.shared.addPerson(Name: Name)
+            self.tableView.reloadData()
         }
-        let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
-
-        alert.addAction(addPerson)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
         
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alert.addAction(add)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return (PairController.shared.persons.count)/2
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return PairController.shared.pairs.count
-    }
-
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return "Group"
+        return "Group \(section + 1)"
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (PairController.shared.persons.count % 2 != 0) {
+            return 1
+        } else {
+            return 2
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PairCell", for: indexPath)
-
-        let pair = PairController.shared.pairs[indexPath.row]
-        cell.textLabel?.text = pair.name
-        
+        let person = PairController.shared.persons[(indexPath.section * 2)]
+        cell.textLabel?.text = person.Name
         
         return cell
     }
-    
+}
 
-   
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
-   }

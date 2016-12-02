@@ -307,6 +307,7 @@
 				D923B72D1DF1D23700E3332C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

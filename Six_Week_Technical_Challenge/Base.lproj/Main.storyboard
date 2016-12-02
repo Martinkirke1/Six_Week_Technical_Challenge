@@ -21,6 +21,9 @@
                             <rect key="frame" x="0.0" y="153" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Random"/>
+                            <connections>
+                                <action selector="randomButtonPressed:" destination="CGe-Yc-EPZ" eventType="touchUpInside" id="DiE-mD-OUg"/>
+                            </connections>
                         </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PairCell" rowHeight="61" id="6co-iE-dkg">
@@ -41,7 +44,7 @@
                     <navigationItem key="navigationItem" title="Pair Randomizer" id="WWs-Ca-cWx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0nl-zR-GPh">
                             <connections>
-                                <action selector="addPairTapped:" destination="CGe-Yc-EPZ" id="pTv-qI-MBg"/>
+                                <action selector="addButtonPressed:" destination="CGe-Yc-EPZ" id="jWr-Nt-EUJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
