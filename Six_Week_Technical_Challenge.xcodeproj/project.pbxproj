@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		D923B71D1DF1D23600E3332C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923B71C1DF1D23600E3332C /* AppDelegate.swift */; };
-		D923B71F1DF1D23600E3332C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923B71E1DF1D23600E3332C /* ViewController.swift */; };
 		D923B7221DF1D23600E3332C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D923B7201DF1D23600E3332C /* Main.storyboard */; };
 		D923B7241DF1D23700E3332C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D923B7231DF1D23700E3332C /* Assets.xcassets */; };
 		D923B7271DF1D23700E3332C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D923B7251DF1D23700E3332C /* LaunchScreen.storyboard */; };
+		D923B72F1DF1D56500E3332C /* PairTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923B72E1DF1D56500E3332C /* PairTableViewController.swift */; };
+		D923B7311DF1D65500E3332C /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923B7301DF1D65500E3332C /* Pair.swift */; };
+		D923B7331DF1D66400E3332C /* PairController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923B7321DF1D66400E3332C /* PairController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D923B7191DF1D23600E3332C /* Six_Week_Technical_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Six_Week_Technical_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D923B71C1DF1D23600E3332C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D923B71E1DF1D23600E3332C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D923B7211DF1D23600E3332C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D923B7231DF1D23700E3332C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D923B7261DF1D23700E3332C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D923B7281DF1D23700E3332C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D923B72E1DF1D56500E3332C /* PairTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairTableViewController.swift; sourceTree = "<group>"; };
+		D923B7301DF1D65500E3332C /* Pair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
+		D923B7321DF1D66400E3332C /* PairController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				D923B71C1DF1D23600E3332C /* AppDelegate.swift */,
-				D923B71E1DF1D23600E3332C /* ViewController.swift */,
 				D923B7201DF1D23600E3332C /* Main.storyboard */,
+				D923B7301DF1D65500E3332C /* Pair.swift */,
+				D923B7321DF1D66400E3332C /* PairController.swift */,
+				D923B72E1DF1D56500E3332C /* PairTableViewController.swift */,
 				D923B7231DF1D23700E3332C /* Assets.xcassets */,
 				D923B7251DF1D23700E3332C /* LaunchScreen.storyboard */,
 				D923B7281DF1D23700E3332C /* Info.plist */,
@@ -136,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D923B71F1DF1D23600E3332C /* ViewController.swift in Sources */,
 				D923B71D1DF1D23600E3332C /* AppDelegate.swift in Sources */,
+				D923B72F1DF1D56500E3332C /* PairTableViewController.swift in Sources */,
+				D923B7311DF1D65500E3332C /* Pair.swift in Sources */,
+				D923B7331DF1D66400E3332C /* PairController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
